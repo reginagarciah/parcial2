@@ -1,0 +1,194 @@
+\documentclass[10pt,xcolor={dvipsnames}]{beamer}
+\usetheme[
+%%% option passed to the outer theme
+%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
+  ]{Feather}
+  
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+
+% Change the bar colors:
+\setbeamercolor{Feather}{fg=NavyBlue!20,bg=NavyBlue}
+
+% Change the color of the structural elements:
+\setbeamercolor{structure}{fg=NavyBlue}
+
+% Change the frame title text color:
+\setbeamercolor{frametitle}{fg=black!5}
+
+% Change the normal text colors:
+\setbeamercolor{normal text}{fg=black!75,bg=gray!5}
+
+%% Change the block title colors
+\setbeamercolor{block title}{use=Feather,bg=Feather.fg, fg=black!90} 
+
+
+% Change the logo in the upper right circle:
+%\renewcommand{\logofile}{example-grid-100x100pt} 
+%% This is an image that comes with the LaTeX installation
+% Adjust scale of the logo w.r.t. the circle; default is 0.875
+% \renewcommand{\logoscale}{0.55}
+
+% Change the background image on the title and final page.
+% It stretches to fill the entire frame!
+% \renewcommand{\backgroundfile}{example-grid-100x100pt}
+
+%-------------------------------------------------------
+% INCLUDE PACKAGES
+%-------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+% \usepackage{helvet}
+
+%% Load different font packages to use different fonts
+%% e.g. using Linux Libertine, Linux Biolinum and Inconsolata
+% \usepackage{libertine}
+% \usepackage{zi4}
+
+%% e.g. using Carlito and Caladea
+\usepackage{carlito}
+\usepackage{caladea}
+\usepackage{zi4}
+
+%% e.g. using Venturis ADF Serif and Sans
+% \usepackage{venturis}
+
+%-------------------------------------------------------
+% DEFFINING AND REDEFINING COMMANDS
+%-------------------------------------------------------
+
+% colored hyperlinks
+\newcommand{\chref}[2]{
+  \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
+}
+
+%-------------------------------------------------------
+% INFORMATION IN THE TITLE PAGE
+%-------------------------------------------------------
+
+\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
+{ % is placed on the title page
+      \textbf{2do proyecto parcial}
+}
+
+\subtitle[2do proyecto parcial]
+{
+      \textbf{Métodos numéricos}
+}
+
+\author[Equipo 5]
+{     Equipo 5 \\
+      {\ttfamily }\\[1em]
+     Sistemas de ecuaciones
+}
+
+\institute[]
+{%
+      Tecnológico de Monterrey
+}
+
+\date{\today}
+
+%-------------------------------------------------------
+% THE BODY OF THE PRESENTATION
+%-------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------
+% THE TITLEPAGE
+%-------------------------------------------------------
+
+{\1% % this is the name of the PDF file for the background
+\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
+  \titlepage % call the title page information from above
+\end{frame}}
+
+
+\begin{frame}{Sistema de ecuaciones lineales}{}
+\tableofcontents
+\end{frame}
+
+%-------------------------------------------------------
+\section{Introducción}
+%-------------------------------------------------------
+\subsection{En este proyecto de segundo parcial de la materia de métodos numéricos hemos decidido utilizar el método de Cramer para resolver un problema común al que nos enfrentaremos al tener nuestro propio negocio.}
+\begin{frame}{Descripción del problema}{Sistema de ecuaciones lineales}
+%-------------------------------------------------------
+
+  \begin{itemize}
+    \item<1-> Imaginemos que tenemos un taller automovilístico, y mensualmente se hacen compras de diferentes partes y herramientas que casi cualquier automóvil necesita, es decir, nada muy específico. Nosotros como jefes del taller no estamos muy al tanto de qué es lo que se compra (ni de cantidades ni de precios) muy explícitamente, es decir, sabemos del presupuesto requerido y qué tipo de martes nada más. Sabemos que se gastaron 75,000 el último mes entre lámparas (linternas), tuercas, y líquido refrigerante. Las lámparas cuestan 160, los paquetes que traen diferentes tuercas 800 y las cajas de 10 líquidos cuestan 500. El número de la caja de líquidos compradas es igual al número de tuercas + número de lámparas compradas. El método que usaremos para saber cuánto se compró de cada cosa es el de Cramer.
+   
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Métodos a utilizar}
+%-------------------------------------------------------
+\subsection{Cramer}
+\begin{frame}{Resultados}
+%-------------------------------------------------------
+
+\begin{block}{}
+Variables
+\begin{itemize}
+    \item {\tt Número de lámparas: x}
+    \item {\tt Número de cajas de líquido refrigerante: y}
+    \item {\tt Número de tuercas: z}
+  \end{itemize}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Gauss-Jordan}
+\begin{frame}{Sistema de ecuaciones}
+%-------------------------------------------------------
+  \item {Primera ecuación: si sabemos que entre los 3 diferentes materiales son 200 unidades. 
+x + y + z = 200}
+\item {Segunda ecuación: si sabemos que se gastaron 75,000
+160x + 500y + 800z = 75,000}
+\item{Tercera ecuación: Caja de líquidos = tuercas + lámparas
+x = y+ z
+x -y-z = 0}
+
+  \pause
+  \begin{block}{Primera ecuación}
+  \begin{itemize}    
+    \item x + y + z = 200
+  \end{itemize}
+  \end{block}
+
+  \begin{block}{Segunda ecuación}
+  \begin{itemize}
+     \item 160x + 500y + 800z = 75,000 
+  \end{itemize}
+  \end{block}
+  
+  \begin{block}{Tercera ecuaión}
+  \begin{itemize}
+     \item x -y-z = 0
+  \end{itemize}
+  \end{block}
+\end{frame}
+     
+
+%-------------------------------------------------------
+\subsection{-}
+\begin{frame}{Conclusiones}{Required Packages}
+%-------------------------------------------------------
+
+  Gracias a los 2 diferentes métodos podemos darnos cuenta de que no importa la manera en la que lo resolvamos, sino que sea correcta y los datos estén acomodados bien, y nos darán el mismo resultado. Dicho esto, y habiendo resuelto, podemos decir que se compraron 100 lámparas, 70 paquetes de tuercas y 30 cajas de 10 líquidos refrigerantes. Aunque sabemos que en la vida real son muchas unidades, estamos imaginando que sea un taller muy grande que atienda a muchos coches al mes y por eso se necesita esa cantidad de material.
+
+  
+\end{frame}
+
+
+
+
+{\1
+\begin{frame}[plain,noframenumbering]
+  \finalpage{¡Gracias!}
+\end{frame}}
+
+\end{document}
